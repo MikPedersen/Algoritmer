@@ -1,3 +1,4 @@
+import javax.swing.plaf.IconUIResource;
 import java.util.ArrayList;
 
 public class Algoritmer {
@@ -21,7 +22,12 @@ public class Algoritmer {
         find(5);
         findalle(5);
         findmax();
-        bubbleSort(data);
+
+        //Vælg en metode til sortering
+        //bubbleSort(data);
+        selectionSort();
+
+        //udskriv listen til tjek
         System.out.println(data);
     }
 
@@ -76,7 +82,17 @@ public class Algoritmer {
             int currentminimum = data.get(i);
             int currentminimumIndex = i;
 
-
+            for (int j = i+1; j < data.size(); j++) {
+                if (currentminimum > data.get(j)){
+                    currentminimum = data.get(j);
+                    currentminimumIndex = j;
+                }
+            }
+            if (currentminimumIndex!= i){
+                data.set(currentminimumIndex, data.get(i));
+                data.set(i, currentminimum);
+            }
         }
+
     }
 }
